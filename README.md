@@ -1,5 +1,5 @@
 # Article Ranker
-A simple app using React and Semantic UI to render articles from 5 mocked API's. Articles are voted for and then ranked. The ranked results are then displayed.
+A simple app using React and Semantic UI to render articles from 5 mocked API's. Articles are voted for and then ranked. The ranked results are then displayed from ascending to descending votes.
 
 
 # Article + App Header
