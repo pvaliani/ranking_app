@@ -4,8 +4,9 @@ import Ranking from "./components/Ranking";
 import RankingResult from "./components/RankingResult";
 import AppHeader from "./components/AppHeader";
 import "./App.css";
+import { Grid, Header, Container } from 'semantic-ui-react'
 
-// Mock API links set up using the JSON data provided in the exercise brief
+
 const urls = [
   "https://run.mocky.io/v3/74ff75f9-944c-4d7e-a8e8-e26e7c51111d",
   "https://run.mocky.io/v3/00160158-7485-4e3e-987f-41f8f2567a19",
@@ -73,7 +74,89 @@ class App extends Component {
     });
   }
 
+  // Adding upvotes/downvotes with switch/case statements 
+  // If the user clicks the upvote button, the articles overall vote share 
+  // will increase relative to the previous state
+  upVote(index) {
+    switch (index) {
+      case 0:
+        this.setState(prevState => {
+          return {
+            vote0: prevState.vote0 + 1
+          };
+        });
+        break;
+      case 1:
+        this.setState(prevState => {
+          return {
+            vote1: prevState.vote1 + 1
+          };
+        });
+        break;
+      case 2:
+        this.setState(prevState => {
+          return {
+            vote2: prevState.vote2 + 1
+          };
+        });
+        break;
+      case 3:
+        this.setState(prevState => {
+          return {
+            vote3: prevState.vote3 + 1
+          };
+        });
+        break;
+      case 4:
+        this.setState(prevState => {
+          return {
+            vote4: prevState.vote4 + 1
+          };
+        });
+    }
+  }
 
+  // Subtract upvotes/downvotes with switch/case statements 
+  // If the user clicks the downvote button, the articles overall vote share 
+  // will decrease relative to the previous state
+  downVote(index) {
+    switch (index) {
+      case 0:
+        this.setState(prevState => {
+          return {
+            vote0: prevState.vote0 - 1
+          };
+        });
+        break;
+      case 1:
+        this.setState(prevState => {
+          return {
+            vote1: prevState.vote1 - 1
+          };
+        });
+        break;
+      case 2:
+        this.setState(prevState => {
+          return {
+            vote2: prevState.vote2 - 1
+          };
+        });
+        break;
+      case 3:
+        this.setState(prevState => {
+          return {
+            vote3: prevState.vote3 - 1
+          };
+        });
+        break;
+      case 4:
+        this.setState(prevState => {
+          return {
+            vote4: prevState.vote4 - 1
+          };
+        });
+    }
+  }
 
   // loadNextArticle fetches the next article and first checks if the article object 
   // exists at the the next articleIndex and if a url exists to load the article from
@@ -111,15 +194,8 @@ class App extends Component {
     }
   };
 
-  
-  // Essentially doing the same as useEffect hook - will trigger re-rendering upon a state change
-  // to the next article
-  componentDidMount() {
-    this.loadNextArticle();
-  }
-
-   // Loads the previous article in state
-   loadPrevArticle = () => {
+  // Loads the previous article in state
+  loadPrevArticle = () => {
     if (this.state.articleIndex > -1) {
       this.setState(prevState => {
         return {
@@ -131,26 +207,104 @@ class App extends Component {
     }
   };
 
+  // Essentially doing the same as useEffect hook - will trigger re-rendering upon a state change
+  // to the next article
+  componentDidMount() {
+    this.loadNextArticle();
+  }
+
+  // If the articles are ranked, POST the data
   render() {
-    return (
-      <div>
-      <RankingResult
-        articles={this.state.articles}
-        vote0={this.state.vote0}
-        vote1={this.state.vote1}
-        vote2={this.state.vote2}
-        vote3={this.state.vote3}
-        vote4={this.state.vote4}
-      />
-    </div>
-    );
-    
-    
+    if (this.state.ranked === true) {
+      var url = "https://run.mocky.io/v3/cee41568-7e51-4fd9-bd1a-486523cd8f2f";
+      var data = { "Articles" : this.state.ranked };
+      fetch(url, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      })
+        .then(res => res.json())
+        .then(response => console.log("Success:", JSON.stringify(response)))
+        .catch(error => console.error("Error:", error));
+
+      return (
+        <div>
+          <RankingResult
+            articles={this.state.articles}
+            vote0={this.state.vote0}
+            vote1={this.state.vote1}
+            vote2={this.state.vote2}
+            vote3={this.state.vote3}
+            vote4={this.state.vote4}
+          />
+        </div>
+      );
     }
 
-   
-   
-  
+    // If there are no article objects return a message during pre-load
+    if (this.state.articles.length === 0) {
+      return (
+        <Grid>
+        <Grid.Column textAlign="center" verticalAlign="middle">  
+    <Container text>
+      <Header>
+        <p>The Articles Are Loading. Please wait...</p>
+      </Header>
+      </Container>
+      </Grid.Column>
+      </Grid>
+      );
+    } 
+    
+    else 
+    // Render the article, buttons and associated properties for viewing by the user 
+      if (urls.length === this.state.articleIndex) {
+        return (
+          <>
+          
+            <AppHeader/>
+          <div>
+            {
+              <Ranking
+                articles={this.state.articles}
+                vote0={this.state.vote0}
+                vote1={this.state.vote1}
+                vote2={this.state.vote2}
+                vote3={this.state.vote3}
+                vote4={this.state.vote4}
+                upVote={this.upVote}
+                downVote={this.downVote}
+                RankingResult={this.RankingResult}
+              />
+            }
+          </div>
+        
+          </>
+        );
+    } 
+    
+    else {
+      return (
+        <>
+      
+        <AppHeader/>
+        <div>
+          {
+            <ArticleList
+              article={this.state.articles[this.state.articleIndex]}
+              loadNextArticle={this.loadNextArticle}
+              loadPrevArticle={this.loadPrevArticle}
+            />
+          }
+          ;
+        </div>
+      
+        </>
+      );
+    }
+  }
 }
 
 export default App;
