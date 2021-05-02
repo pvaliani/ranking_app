@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Header } from 'semantic-ui-react'
+import { Divider, Grid, Container, Button, Header } from 'semantic-ui-react'
 
 // Ranking component generates vote objects in an array for user voting 
 class Ranking extends Component {
@@ -18,26 +18,33 @@ class Ranking extends Component {
     // cast
     return (
       <>
-        <h1>Vote For Your Articles</h1>
+      <Grid>
+            <Grid.Column textAlign="center">  
+        <Container text>
+        <Header as="h1">Vote For Your Favourite Articles</Header>
         {this.props.articles.map((article, index) => {
           const userState = votesArray[index];
           return (
             <>
             <div key={index}>
-              <Header as="h3"> <Header>Rating: {userState} </Header> {article.title} </Header>
+              <Header as="h4"> {article.title} </Header>  <p>Rating: {userState} </p>
               
-                  
-              <Button onClick={() => this.props.upVote(index)}> VOTE UP </Button>
+              
+              <Button color="black" circular onClick={() => this.props.upVote(index)}> VOTE UP </Button>
 
               
-                <Button onClick={() => this.props.downVote(index)}> VOTE DOWN </Button>
-
+                <Button color= "black" circular onClick={() => this.props.downVote(index)}> VOTE DOWN </Button>
+              
             </div>
             </>
           );
         })}
-          <Button onClick={() => this.props.RankingResult()}>
-          Submit Ranking </Button>
+          <Divider><Button color="black" circular onClick={() => this.props.RankingResult()}>
+          Submit Votes </Button></Divider>
+
+          </Container>
+          </Grid.Column>
+            </Grid>
       </>
     );
   }
