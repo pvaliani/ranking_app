@@ -1,3 +1,7 @@
+# A simple app using React and Semantic UI to render articles from 5 mocked API's. Articles are voted for and then ranked. The ranked results are then displayed
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
