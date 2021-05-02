@@ -8,28 +8,17 @@ import { Grid, Divider, Header, Container } from "semantic-ui-react";
 class Article extends Component {
   
   render() {
-
-    
-
-
-
     return (
       <>
        <Grid>
-            <Grid.Column textAlign="justified">  
+          <Grid.Column textAlign="justified">  
       <Container text>
       <Header><Divider>{this.props.article.title}</Divider></Header>
         {this.props.article.body.map((bodyIndex) => {
           return (
             <>
               <div>
-                
-                
-            
                 <Container text> {<h1>{bodyIndex.type}</h1>}</Container>
-            
-                
-              
                 <Container text><p>{bodyIndex.model.text}</p></Container>
                   <img
                     src={bodyIndex.model.url}
@@ -41,14 +30,12 @@ class Article extends Component {
                   />
                 <Container><p>{bodyIndex.model.type}</p></Container>
                 <Container><p>{bodyIndex.model.items}</p></Container>
-             
-              
               </div>  
             </> 
           );
         })}
-        </Container>
-        </Grid.Column>
+          </Container>
+          </Grid.Column>
               </Grid>
       </>
     );
