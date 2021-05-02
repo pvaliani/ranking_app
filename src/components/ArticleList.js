@@ -10,10 +10,19 @@ import ArticleNavigation from "./ArticleNavigation";
 class ArticleList extends Component {
   render() {
     return (
-        <>
-        This is Article List
-        </>
-    );
+        <div className="container">
+          <div>
+            <Article article={this.props.article} />
+          </div>
+  
+          <div>
+            <ArticleNavigation
+              forwardClick={this.props.loadNextArticle}
+              backwardClick={this.props.loadPrevArticle}
+            />
+          </div>
+        </div>
+      );
   }
 }
 
