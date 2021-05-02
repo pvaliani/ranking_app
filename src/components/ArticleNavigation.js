@@ -8,7 +8,8 @@ class ArticleNavigation extends Component {
   render() {
     return (
       <>
-       <Button>This is a Button</Button>
+        <Button onClick={this.props.backwardClick}> Previous Article </Button>
+        <Button onClick={this.props.forwardClick}> Next Article </Button>
         </>
     );
   }
