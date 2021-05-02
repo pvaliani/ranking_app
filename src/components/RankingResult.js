@@ -5,6 +5,7 @@ class RankingResult extends Component {
     render() {
         return (
             <>
+            <AppHeader/>
             This is the Ranking Result page
             </>
         );
