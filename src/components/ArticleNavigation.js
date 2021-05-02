@@ -8,11 +8,11 @@ class ArticleNavigation extends Component {
   render() {
     return (
       <>
-        <Grid>
-            <Grid.Column textAlign="center">
-                <Button color="black" circular onClick={this.props.backwardClick}> Previous Article </Button>
-                <Button color="black" circular  onClick={this.props.forwardClick}> Next Article </Button>
-            </Grid.Column>
+         <Grid>
+        <Grid.Column textAlign="center">
+        <Button color="black" circular onClick={this.props.backwardClick}> Previous Article </Button>
+        <Button color="black" circular  onClick={this.props.forwardClick}> Next Article </Button>
+        </Grid.Column>
         </Grid>
       </>
     );

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Grid, Container, Divider } from "semantic-ui-react";
 import AppHeader from "./AppHeader";
 
 
@@ -20,19 +21,25 @@ class RankingResult extends Component {
     // Map the article objects based on the ranking order of votesArray
     return (
       <>
+        <Grid>
+            <Grid.Column textAlign="center">  
+        <Container text>
           <AppHeader/>
-          <h1> Your Ranked Articles </h1>
+          <h1> Your Top Reads </h1>
 
           {this.props.articles.map((article, index) => {
               const userState = rankedStateSort[index];
 
             return (
               <div key={index}>
-                    {article.title}
-                      <p>{userState}</p>   
+                    <Divider>{article.title}</Divider> 
+                      <p>Score: {userState}</p>
               </div>
             );
           })}
+          </Container>
+          </Grid.Column>
+          </Grid>
       </>
     );
   }

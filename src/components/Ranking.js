@@ -28,13 +28,8 @@ class Ranking extends Component {
             <>
             <div key={index}>
               <Header as="h4"> {article.title} </Header>  <p>Rating: {userState} </p>
-              
-              
-              <Button color="black" circular onClick={() => this.props.upVote(index)}> VOTE UP </Button>
-
-              
+                <Button color="black" circular onClick={() => this.props.upVote(index)}> VOTE UP </Button>
                 <Button color= "black" circular onClick={() => this.props.downVote(index)}> VOTE DOWN </Button>
-              
             </div>
             </>
           );
@@ -42,9 +37,9 @@ class Ranking extends Component {
           <Divider><Button color="black" circular onClick={() => this.props.RankingResult()}>
           Submit Votes </Button></Divider>
 
-          </Container>
+        </Container>
           </Grid.Column>
-            </Grid>
+      </Grid>
       </>
     );
   }
