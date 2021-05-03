@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Grid, Container, Header, Image } from 'semantic-ui-react'
+import { Header, Image } from 'semantic-ui-react'
 import BBCLogo from '../assets/BBCLogo.png';
 
 // AppHeader component represents the BBC logo header

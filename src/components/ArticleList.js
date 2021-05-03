@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Container } from "semantic-ui-react";
 import Article from "./Article";
 import ArticleNavigation from "./ArticleNavigation";
 
@@ -11,23 +10,19 @@ class ArticleList extends Component {
  
   render() {
 
-  
      return (
 
       <>
-      <div className="container">
-        <div>
-          <Article article={this.props.article} />
+        <div className="container">
+            <div>
+                <Article article={this.props.article} />
+            </div>
+            <div>
+                <ArticleNavigation 
+                forwardClick={this.props.loadNextArticle}
+                backwardClick={this.props.loadPrevArticle}/>
+            </div>
         </div>
-        <div>
-        
-          <ArticleNavigation 
-            forwardClick={this.props.loadNextArticle}
-            backwardClick={this.props.loadPrevArticle}
-          />
-          
-        </div>
-      </div>
       </>
     );
   }

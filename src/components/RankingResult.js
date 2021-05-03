@@ -33,7 +33,7 @@ class RankingResult extends Component {
             return (
               <div key={index}>
                     <Divider>{article.title}</Divider> 
-                      <p>Score: {userState}</p>
+                    <p>Score: {userState}</p>
               </div>
             );
           })}
