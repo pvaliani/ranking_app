@@ -1,10 +1,12 @@
 # Article Ranker
 A simple app using React and Semantic UI to render articles from 5 mocked API's. Articles are voted for and then ranked. The ranked results are then displayed from ascending to descending votes.
 
+The app was made without the use of hooks i.e useState or useEffect in order to get practice of class based components! 
+
 # App Deployment
 The app is currently deployed at http://article-ranker.herokuapp.com/
 
-# Notes on Deployment
+# Notes on Deployed Version
 The loading time of the application could be improved. Upon first load of the page the response time is quite slow as all article objects are fetched
 from the Mock API's. As these articles are pre-loaded, subsequent hits to the site mean that articles load faster.
 
