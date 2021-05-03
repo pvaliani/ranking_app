@@ -12,9 +12,9 @@ from the Mock API's. As these articles are pre-loaded, subsequent hits to the si
 
 
 # Article + App Header
-![image](https://user-images.githubusercontent.com/72317734/116829671-eaf36680-ab9c-11eb-8a7c-e797daac96cb.png)
+![image](https://user-images.githubusercontent.com/72317734/116912762-91447800-ac40-11eb-9e5c-acb00f041eae.png)
 # Article Navigation
-![image](https://user-images.githubusercontent.com/72317734/116829627-9819af00-ab9c-11eb-8860-affcd8777165.png)
+![image](https://user-images.githubusercontent.com/72317734/116912816-9ef9fd80-ac40-11eb-9fbf-587abd8a04b5.png)
 # Ranking Options
 ![image](https://user-images.githubusercontent.com/72317734/116829638-ae276f80-ab9c-11eb-8bed-7f28fe055ff3.png)
 # Ranking Display
