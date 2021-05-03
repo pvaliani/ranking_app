@@ -1,5 +1,5 @@
 # Article Ranker
-A simple app using React and Semantic UI to render articles from 5 mocked API's. Articles are voted for and then ranked. The ranked results are then displayed from ascending to descending votes.
+A simple app using React and Semantic UI to render articles from 5 mocked API's. Articles are voted for and then ranked. The ranked results are then displayed from ascending to descending votes. A user is unable to use the "previous article" button on the first article but can cycle through subsequent articles.
 
 The app was made without the use of hooks i.e useState or useEffect in order to get practice of class based components! 
 
