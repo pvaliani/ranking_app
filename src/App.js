@@ -263,7 +263,6 @@ class App extends Component {
       if (urls.length === this.state.articleIndex) {
         return (
           <>
-          
             <AppHeader/>
           <div>
             {
