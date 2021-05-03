@@ -37,9 +37,9 @@ class RankingResult extends Component {
               </div>
             );
           })}
-          </Container>
-          </Grid.Column>
-          </Grid>
+        </Container>
+        </Grid.Column>
+        </Grid>
       </>
     );
   }

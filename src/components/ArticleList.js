@@ -11,7 +11,6 @@ class ArticleList extends Component {
   render() {
 
      return (
-
       <>
         <div className="container">
             <div>
@@ -19,6 +18,7 @@ class ArticleList extends Component {
             </div>
             <div>
                 <ArticleNavigation 
+                articleIndex={this.props.articleIndex}
                 forwardClick={this.props.loadNextArticle}
                 backwardClick={this.props.loadPrevArticle}/>
             </div>

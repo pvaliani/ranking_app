@@ -24,13 +24,13 @@ class Ranking extends Component {
 
         {this.props.articles.map((article, index) => {
           const userState = votesArray[index];
-
+          
           return (
             <>
             <div key={index}>
               <Header as="h4"> {article.title} </Header>  <p>Rating: {userState} </p>
-              <Button color= "black" circular onClick={() => this.props.downVote(index)}> VOTE DOWN </Button>
                 <Button color="black" circular onClick={() => this.props.upVote(index)}> VOTE UP </Button>
+                <Button color= "black" circular onClick={() => this.props.downVote(index)}> VOTE DOWN </Button>
             </div>
             </>
           );

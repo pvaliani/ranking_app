@@ -6,7 +6,7 @@ import AppHeader from "./components/AppHeader";
 import "./App.css";
 import { Grid, Header, Container } from 'semantic-ui-react'
 
-// urls containing a mock API representation of the supplied data - non-token'd hence not secure
+// URL's are mocked API's set up on mocky - not secure as no token required
 const urls = [
   "https://run.mocky.io/v3/74ff75f9-944c-4d7e-a8e8-e26e7c51111d",
   "https://run.mocky.io/v3/00160158-7485-4e3e-987f-41f8f2567a19",
@@ -74,10 +74,13 @@ class App extends Component {
     });
   }
 
-   //  ----------------- HANDLING THE VOTES -------------------------
   // Adding upvotes/downvotes with switch/case statements 
   // If the user clicks the upvote button, the articles overall vote share 
   // will increase relative to the previous state
+
+
+    // ------------------------------ HANDLES THE UP AND DOWN VOTING ------------------------------
+
   upVote(index) {
     switch (index) {
       case 0:
@@ -117,11 +120,9 @@ class App extends Component {
     }
   }
 
- 
   // Subtract upvotes/downvotes with switch/case statements 
   // If the user clicks the downvote button, the articles overall vote share 
   // will decrease relative to the previous state
-
   downVote(index) {
     switch (index) {
       case 0:
@@ -161,9 +162,9 @@ class App extends Component {
     }
   }
 
-   //  ----------------- HANDLING THE VOTES -------------------------
+    // ------------------------------ HANDLES THE UP AND DOWN VOTING ------------------------------
 
-    //  ----------------- LOADING THE NEXT/PREVIOUS ARTICLES -------------------------
+    // ------------------------------ HANDLE THE NEXT AND PREVIOUS ARTICLES ------------------------------
 
   // loadNextArticle fetches the next article and first checks if the article object 
   // exists at the the next articleIndex and if a url exists to load the article from
@@ -220,9 +221,7 @@ class App extends Component {
     this.loadNextArticle();
   }
 
-    //  ----------------- LOADING THE NEXT/PREVIOUS ARTICLES -------------------------
-
-     //  ----------------- HANDLE THE RANKING INFO -------------------------
+  // ------------------------------ HANDLE THE NEXT AND PREVIOUS ARTICLES ------------------------------
 
   // If the articles are ranked, POST the data
   render() {
@@ -294,8 +293,6 @@ class App extends Component {
           </>
         );
     } 
-
-   //  ----------------- HANDLE THE RANKING INFO -------------------------
     
     else {
       return (
@@ -306,6 +303,7 @@ class App extends Component {
           {
             <ArticleList
               article={this.state.articles[this.state.articleIndex]}
+              articleIndex={this.state.articleIndex}
               loadNextArticle={this.loadNextArticle}
               loadPrevArticle={this.loadPrevArticle}
             />
